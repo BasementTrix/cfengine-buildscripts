@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Options
+PREFIX=${BUILDPREFIX:-/var/cfengine}
+
+H2Mdir="${BUILD_ROOT}/cfbuild-help2man"
+
+export CC=/usr/local/bin/gcc6
+
+# Configure
+
+./configure --prefix=${PREFIX}
+
+/usr/local/bin/gmake -s 
+
+/usr/local/bin/gmake -s DESTDIR=${H2Mdir} install
