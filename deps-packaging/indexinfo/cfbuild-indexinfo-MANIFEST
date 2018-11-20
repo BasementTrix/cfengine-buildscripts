@@ -1,0 +1,22 @@
+name = "cfbuild-indexinfo";
+origin = "northerntech/indexinfo";
+version = "0.3.1";
+comment = "Utility to regenerate the GNU info page index";
+maintainer = "bapt@FreeBSD.org";
+www = "https://github.com/bapt/indexinfo";
+abi = "FreeBSD:11:amd64";
+arch = "freebsd:11:x86:64";
+prefix = "/var/cfengine";
+licenselogic = "single";
+licenses [
+    "BSD2CLAUSE",
+]
+desc = <<EOD
+Small utility designed to regenerate the GNU info page indexes
+
+WWW: https://github.com/bapt/indexinfo
+EOD;
+files {
+    "/var/cfengine/bin/indexinfo" = "a272e380d0e402e184f810b904e24d87cd66d8660013015738134b2ecb84951a"
+}
+

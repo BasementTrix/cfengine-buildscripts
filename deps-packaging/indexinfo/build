@@ -1,0 +1,12 @@
+#!/bin/sh -e
+
+PREFIX=${BUILDPREFIX:-/var/cfengine}
+
+BUILD_OUTPUT=${BUILD_ROOT}/cfbuild-indexinfo${PREFIX}
+
+## ./configure --prefix=${PREFIX} 
+
+make -s PREFIX=${PREFIX}
+
+mkdir -p ${BUILD_OUTPUT}/bin
+make -s DESTDIR=${BUILD_OUTPUT%${PREFIX}} PREFIX=${PREFIX}  install
