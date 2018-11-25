@@ -2,7 +2,8 @@
 
 # Options
 
-PREFIX=/var/cfengine
+PREFIX=${PREFIX:=/var/cfengine}
+MAKE=${MAKE:=`which make`}
 
 OS=${BUILD_ROOT}/cfbuild-openssl${PREFIX}
 OSD=${BUILD_ROOT}/cfbuild-openssl-devel${PREFIX}
@@ -21,8 +22,8 @@ export PATH=`pwd`/solaris:$PATH
 
 # Build
 
-make depend
-make
+${MAKE} -s  depend
+${MAKE} -s
 
 # Test
 
@@ -38,10 +39,10 @@ make DESTDIR=${BUILD_ROOT}/cfbuild-openssl-devel install_sw
 make DESTDIR=${BUILD_ROOT}/cfbuild-openssl-devel install_ssldirs
 # Package
 
-rm -rf ${OSD}/bin
-rm -rf ${OSD}/ssl
+# rm -rf ${OSD}/bin
+# rm -rf ${OSD}/ssl
 rm -rf ${OSD}/lib/fips*
-rm -rf ${OSD}/lib/*.a
+# rm -rf ${OSD}/lib/*.a
 
 mkdir -p ${OS}/lib
 mv ${OSD}/lib/libcrypto.so* ${OS}/lib
